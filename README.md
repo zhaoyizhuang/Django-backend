@@ -55,6 +55,8 @@ python3 -m pip install djangorestframework
 For more information, please check out [it's website](https://www.django-rest-framework.org/)
 
 ### db schema script
+The database server used in this project is AWS RDS.
+
 Below is the schema for user instance if you are interested. A user represents a team member in a team.
 ```
 CREATE TABLE `users_user` (
