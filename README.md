@@ -6,6 +6,7 @@ This project implements a RESTful HTTP API to support a team-member management a
 
 ## How to setup and install
 I assume you have already installed python, if not, check out [this website](https://www.python.org/downloads/)
+
 Tools needed for this project:
 * Django
 * mysqlclient
