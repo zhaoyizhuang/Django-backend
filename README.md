@@ -2,7 +2,7 @@
 Author: Zhaoyi Zhuang
 
 ## Overview
-This project implements a RESTful HTTP API to support a team-member management application. The application supports common CRUD operations of the team, uses AWS MySQL RDS as the database, and is implemented in Python and Django
+This project implements a RESTful HTTP API to support a team-member management application. The application supports common CRUD operations of the team members, uses AWS MySQL RDS as the database, and is implemented in Python and Django
 
 ## How to setup and install
 I assume you have already installed python, if not, check out [this website](https://www.python.org/downloads/)
