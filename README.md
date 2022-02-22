@@ -83,9 +83,7 @@ You will see that there are two user instances already exist in the database.
 
 If you already have a Postman, you can [import this link to your postman](https://www.getpostman.com/collections/610751c2c5d1e0046755) to test the project more easily
 
-Otherwise, open a new terminal window
-
-Note: http endpoints for put and delete are users/:uid, so you need to change the uid in link.
+Otherwise, open a new terminal window and use following command to test.
 
 POST
 ```
@@ -96,6 +94,10 @@ GET
 ```
 curl -X GET http://127.0.0.1:8000/users/
 ```
+
+Note: http endpoints for put and delete are users/:uid, so you need to specify :uid in the link.
+
+Following commands are trying to update the user with id 12 and delete the user with id 6
 
 PUT
 ```
