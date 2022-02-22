@@ -54,6 +54,19 @@ python3 -m pip install djangorestframework
 ```
 For more information, please check out [it's website](https://www.django-rest-framework.org/)
 
+### db schema script
+Below is the schema for user instance if you are interested. A user represents a team member in a team.
+```
+CREATE TABLE `users_user` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(100) NOT NULL,
+  `last_name` varchar(100) NOT NULL,
+  `phone_number` varchar(50) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `role` varchar(15) NOT NULL,
+  PRIMARY KEY (`id`)
+)
+```
 
 ## How to run and test the project
 
