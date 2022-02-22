@@ -68,13 +68,18 @@ CREATE TABLE `users_user` (
 )
 ```
 
-## How to run and test the project
+## How to run the project
 
 To run the project locally, execute the following command line in the root of the project
 ```
 python3 manage.py runserver
 ```
-Then open the link: http://127.0.0.1:8000/users/
+Then open the link: http://127.0.0.1:8000/users/  
+
+You will see that there are two user instances already exist in the database.
+
+
+## How to test the project
 
 If you already have a Postman, you can [import this link to your postman](https://www.getpostman.com/collections/610751c2c5d1e0046755) to test the project more easily
 
