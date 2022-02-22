@@ -4,9 +4,9 @@ from .constants import constants
 
 
 # Create your models here.
-class Person(models.Model):
+class User(models.Model):
     """
-    This is the person model which represents each team member of the team.
+    This is the person model which represents each user of the team.
     """
 
     # user roles

@@ -6,7 +6,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .serializers import PersonSerializer
-from .models import Person
+from .models import User
 
 
 # using HTTP endpoints /users
@@ -52,7 +52,7 @@ class PersonView(APIView):
         Response: Represents response to client, including the
         body in JSON array containing user objects
         """
-        users = Person.objects.all()
+        users = User.objects.all()
         serial = PersonSerializer(users, many=True)
         return Response(serial.data, status=status.HTTP_200_OK)
 
@@ -77,8 +77,8 @@ class PersonDetailView(APIView):
         @return user instance
         """
         try:
-            return Person.objects.get(id=uid)
-        except Person.DoesNotExist:
+            return User.objects.get(id=uid)
+        except User.DoesNotExist:
             return None
 
     # DELETE Request

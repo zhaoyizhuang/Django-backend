@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Person
+from .models import User
 
 
 class PersonSerializer(serializers.ModelSerializer):
@@ -9,5 +9,5 @@ class PersonSerializer(serializers.ModelSerializer):
     format. This will simplify the parsing of data for our API.
     """
     class Meta:
-        model = Person
+        model = User
         fields = ["id", "first_name", "last_name", "phone_number", "email", "role"]
