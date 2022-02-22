@@ -69,6 +69,7 @@ class PersonDetailView(APIView):
     </ul>
     """
 
+    # help function
     def get_user(self, uid):
         """
         Retrieve a user instance from database based on user's primary key.
@@ -84,7 +85,7 @@ class PersonDetailView(APIView):
     # DELETE Request
     def delete(self, request, uid):
         """
-        Delete the team member from the team based on user's primary key
+        Delete a user instance from the database based on user's primary key
 
         @param request: Represents request from client, including path
         parameter uid identifying the primary key of the user to
@@ -97,3 +98,39 @@ class PersonDetailView(APIView):
             return Response(status=status.HTTP_400_BAD_REQUEST)
         user_instance.delete()
         return Response(status=status.HTTP_200_OK)
+
+    # PUT Request
+    def put(self, request, uid):
+        """
+        Update a existing user based on the update body and user's primary key.
+        Not all properties need to be provided in the request.
+        Properties that are not included should not be updated.
+
+        @param request: Represents request from client, including path
+        parameter uid identifying the primary key of the user to
+        be updated and body contains update information of the user.
+
+        Response: Represents response to client, including all the properties of the user.
+        """
+        user_instance = self.get_user(uid)
+        if not user_instance:
+            return Response({"res": "User Doesn't Exist"}, status=status.HTTP_400_BAD_REQUEST)
+
+        if request.data.get("first_name") is not None:
+            user_instance.first_name = request.data.get("first_name")
+        if request.data.get("last_name") is not None:
+            user_instance.last_name = request.data.get("last_name")
+        if request.data.get("phone_number") is not None:
+            user_instance.phone_number = request.data.get("phone_number")
+        if request.data.get("email") is not None:
+            user_instance.email = request.data.get("email")
+        if request.data.get("role") is not None:
+            user_instance.role = request.data.get("role")
+
+        serial = PersonSerializer(instance=user_instance, data=request.data, partial=True)
+        if serial.is_valid():
+            user_instance.save()
+            return Response({"status": "updated",
+                             "data": serial.data}, status=status.HTTP_200_OK)
+        return Response({"status": "error",
+                         "data": serial.errors}, status=status.HTTP_200_OK)
